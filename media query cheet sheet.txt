@@ -1,0 +1,70 @@
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) /* IPad */ { 
+    /* STYLES GO HERE */
+  }
+
+@media only screen and (min-device-width : 375px) and (max-device-width : 667px) /* IPhone6 & IPhone 8*/ { 
+    /* STYLES GO HERE */
+}
+
+@media only screen and (min-device-width : 414px) and (max-device-width : 736px) /* IPhone 6 + & IPhone 8 +*/ { 
+  /* STYLES GO HERE */
+}
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 568px) /* IPhone 5 */ { 
+  /* STYLES GO HERE */
+}
+
+@media only screen and (device-width : 375px) and (device-height : 812px) /* IPhone X */ { 
+  /* STYLES GO HERE */
+}
+
+@media only screen and (min-device-width : 412px) and (max-device-width :732px)  /* Pixel 2 */ { 
+  /* STYLES GO HERE */
+}
+
+@media only screen and (min-device-width : 412px) and (max-device-width :823px)  /* Pixel 2 XL*/ { 
+  /* STYLES GO HERE */
+}
+
+@media screen and (device-width: 360px) and (device-height: 640px) /* Galaxy S5 & Moto G4 */ { 
+  nav ul{
+    float: right;
+    margin-right: 20px;
+  }
+  .input-wrap {
+    display: flex;
+    align-items: center;
+    margin: 15px 15px 17px 15px;
+    width: 200px;
+    justify-content: space-between;
+    /* background-color: #f2f2f2; */
+    border-style: none;
+    border-radius: 25px;
+  }
+  h6 {
+    font-weight: normal;
+    margin: 15px;
+    font-size: small;
+    padding-bottom: 11px;
+  }
+  .most-pop {
+    display: flex;
+    flex-direction: column;
+    background-color: #f2f2f2;
+    margin: 0px 14px 25px 13px;
+    padding-bottom: 30px;
+    font-size: 14px;
+  }
+  .accom {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    background-color: #f2f2f2;
+    width: 50%;
+    min-height: 450px;
+    min-width: 330px;
+    padding: 5px;
+    margin-left: 15px;
+  }
+    
+} 
