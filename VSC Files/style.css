@@ -1,43 +1,96 @@
 * {
     text-decoration: none;
+    color: black;
     list-style: none;
     box-sizing: border-box;
     font-family: 'Raleway', sans-serif;
-    margin: 0px 5px; 
+    margin: 0px; 
     padding: 0px;
   }
 
   nav{
       height: 80px; 
+      position: relative;
   }
 
   .logo{
-    margin: 10px;
+    margin: 10px 45% 10px 3%;
   }
 
   nav ul{
     font-size: larger;
+    display: flex;
+    justify-content: space-between;
   }
 
   nav ul li{
-    display: inline-block;
     line-height: 80px;
-    margin: 0px 15px;
-  }
-
-  a{
     color: black;
   }
 
-  a:hover{
+  /* First version of a tag for nav effects */
+
+  nav a::before{
+    content: "";
+    background-color: #0065FC;
+    height: 2px;
+    left: 0;
+    width: 0%;
+    display: block;
+    transition: 0.5s;
+  }
+
+  nav a:hover{
     color: #0065FC;
+  }
+
+   nav a:hover::before{
+    width: 100%;
+    height: 2px;
+  }
+
+  /* Second version of a tag for secion nav effects */
+
+  section a:after{
+    content: "";
+    background-color: #0065FC;
+    height: 2px;
+    left: 0;
+    width: 0%;
+    display: block;
+    transition: 0.5s;
+  }
+
+  section a:hover{
+    color: #0065FC;
+  }
+
+  section a:hover:after{
+    width: 100%;
+    height: 2px;
+  }
+
+  .signup{
+    color:#0065FC;
+    font-weight: bold;
+  }
+
+  .signup a:hover{
+    color: #f2f2f2;
+  }
+
+  .page-title{
+    margin-left: 3%;
+  }
+
+  .page-title p{
+    font-weight: bold;
   }
 
   .input-wrap{
     display: flex;
     align-items: center;
-    margin: 15px 15px 40px 15px;
-    justify-content: space-between;
+    margin: 15px 15px 40px 3%;
     border-style: none;
     border-radius: 25px;
   }
@@ -53,26 +106,94 @@
   input:focus{
     outline: none;
   }
+
+  .search-btn{
+    color: white;
+    background-color: #0065FC;
+    padding: 10px 10px 15px 5px;
+    border-style: solid;
+    border-color: #f2f2f2;
+    border-width: 2px;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+  }
   
-  .filter-wrap{
+  .section_filters{
     display: flex;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: start;
+    margin-left: 3%;
+    margin-bottom: 25px;
   }
 
-  .filter-items{
+  .section_filters h2{
+    margin-right: 25px;
+  }
+
+  .filter-wrap{
     display: flex;
     flex-wrap: wrap;
     color: #0065FC;
     border-radius: 25px;
+    width: 45%;
+    justify-content: space-between;
   }
 
-  .filter-item{
-    padding: 10px;
-    border: 3px solid #f2f2f2;
-    color: #0065FC;
-    background-color: #DEEBFF;
+  .filter-btn{
+    padding: 1px;
+    margin: 5px;
+    border: 2px solid #f2f2f2;
+    color: black;
     border-radius: 25px;
+    background-color: var(--background-color);
+    position: relative;
+    transition: color 300ms ease-in-out;
+    z-index: 1;
+    --background-color:white;
+    --accent-color:#0065FC;
+  }
+
+  .filter-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    box-sizing: 25px;
+    background-color: var(--accent-color);
+    z-index: -1;
+    transform: scaleX(0);
+    transition: transform 300ms ease-in-out;
+    transform-origin: left;
+  }
+
+  .filter-btn:hover::before, .filter-btn:focus::before {
+    transform: scaleX(1);
+    border-radius: 50px;
+    color: white;
+  }
+
+  .filter-btn:hover, .filter-btn:focus {
+    color: white;
+  }
+
+  .buffer{
+    padding-top: 8px;
+    background-color: lightblue;
+    height: 32px;
+    width: 35px;
+    color: #0065FC;
+    border-radius: 50%;
+    margin-left: -2px;
+    cursor: pointer;
+    z-index: -1;
+  }
+
+  .filler{
+    padding: 5px;
+    margin-right: 8px;
+    font-weight: bold;
   }
 
   input{
@@ -83,30 +204,8 @@
     font-size: 1.0rem;
   }
 
-  .buffer{
-    padding: 8px;
-    background-color: transparent;
-    border: 3px solid #f2f2f2;
-    margin-right: 15px;
-    color: #000;
-    border-radius: 25px;
-  }
-
-  .far{
-    background-color: none;
-    color: #96999e;
-  }
-
-  .far1{
+  .whitestar{
     margin-left: 10px;
-  }
-
-  .far2{
-    margin: 5px;
-  }
-
-  .b{
-    font-weight: bold;
   }
 
   .blustar{
@@ -116,19 +215,30 @@
   }
 
   #info{
-    padding: 15px;
+    padding-top: 9px;    
     background-color: transparent;
     border: 1px solid #DEEBFF;
     border-radius: 50%;
     height: 33px;
     width: 31px;
     color: #0065FC;
+    margin-left: 3%;
+    margin-bottom: 18px;
+    text-align: center;
+  }
+
+  #infotext span{
+    width: 400px;
+    padding-top: 10px;
+    vertical-align: top;
+    display: inline-block;
+    margin-left: 7px;
   }
 
   #mapcon{
     color: black;
     background-color: #f2f2f2;
-    padding: 10px 10px 15px 5px;
+    padding: 15px;
     border-style: solid;
     border-color: #f2f2f2;
     border-width: 2px;
@@ -141,13 +251,70 @@
     display: flex;
     background-color: white;
     flex-direction: row-reverse;
+    margin: 20px -5px 20px 32px;
   }
 
-  .top-sections > section {
-    flex: none;
-    border-radius: 16px;
-  }
   /* End of main wrapper */
+
+  /* This is for the Most Popular sections in the main */
+
+  .section__most-pop{
+    background-color: #f2f2f2;
+    padding: 10px;
+    width: 28%;
+    border-radius: 25px;
+    margin: 0px 32px 0px 35px;
+  }
+
+  .section__pop-wrap {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+  }
+
+  .section__most-pop h2{
+    margin: 25px 10px 0px 25px;
+  }
+
+  .pop-ani-wrap{
+    display: flex;
+  }
+
+  .section__card-pop {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    padding: 7px;
+    border-radius: 30px;
+    width: 100%;
+    margin: 20px 0 25px 0;
+    color: black;
+    box-shadow: 5px 4px 6px 3px #e8e7e7;
+    justify-content: space-between;
+  }
+
+  .pop-img{
+    height: 145px;
+    width: 140px;
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+  }
+
+  .section__card-pop .content-pop{
+    padding: 12px;
+  }
+  /* End of Most popular */
+
+  
+  /* This Accomidations the main */
+  .section__accom {
+    padding: 10px;
+    width: 67%;
+    background-color: #f2f2f2;
+    display:flex;
+    flex-direction: column;
+    border-radius: 25px;
+  }
 
   .section__title {
     color: black;
@@ -156,63 +323,28 @@
     
   .section__card-wrap {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     flex-wrap: wrap;
   }
 
-  /* This is for the Most Popular sections in the main */
-
-  .section__most-pop{
-    background-color: #f2f2f2;
-    padding: 10px;
-    width: 30%;
-    display:flex;
-    flex-direction: column;
-    margin: 0px 20px 0px 10px;
+  .section__accom h2{
+    margin: 15px 0px 15px 35px;
   }
 
-  .section__card-pop {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    background-color: white;
-    padding: 7px;
-    border-radius: 30px;
-    width: 100%;
-    margin-bottom: 3%;
-  }
-
-  .pop-img{
-    height: 135px;
-    width: 140px;
-    border-top-left-radius: 25px;
-    border-bottom-left-radius: 25px;
-    margin-left: -1px;
-  }
-
-  .section__card-pop .content-pop{
-    display: inline;
-    outline: 2px solid red;
-  }
-  /* End of Most popular */
-
-  
-  /* This Accomidations the main */
-  .section__accom {
-    padding: 10px;
-    width: 65%;
-    background-color: #f2f2f2;
-    display:flex;
-    flex-direction: column;
+  #show{
+      font-weight: bold;
+      padding: 32px;
   }
 
   .section__card {
-    display: block;
+    /* display: block;
+    width: 45%; */
+    color: black;
     background-color: white;
     padding: 3px;
     border-radius: 17px;
-    width: 31%;
-    margin-bottom: 3%;
+    margin: 10px 3px 10px 3px;
+    box-shadow: 5px 4px 6px 3px #e8e7e7;
   }
 
   .acom-img{
@@ -220,27 +352,30 @@
     width: 250px;
     border-top-left-radius: 25px;
     border-top-right-radius: 25px;
-    margin: 0px 0px 5px 0px;
+    margin: 0px 0px 3px 0px;
     padding: 3px;
+  }
+
+  .content{
+    margin: 0px 0 0 7px;
+  }
+
+  .section__card-name, .section__description {
+    margin-bottom: 6px;
   }
   /* End of Accomidations */
 
-  
-  /* This div wrapper around the bottom section in the main */
-  .bottom-sections {
-    display: flex;
-  }
-  /* End of bottm wrapper */
-
   /* This is the Activities section*/
 
-  .section_activ {
+  .section__activ {
     border-radius: 15px;
     padding: 20px;
+    width: 98%;
+    margin: 20px 0px 15px 10px;
   }
   
-  .activ__title--card {
-    margin: 5px 0 10px 0;
+  .activ__title{
+    margin-left: 32px;
   }
 
   .tall{
@@ -254,16 +389,23 @@
   
   .activ__wrap--stack {
     width: 22%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   }
   .activ__card {
     background-color: white;
+    color: black;
     border-radius: 15px;
-    padding: 0px;
     display: block;
     width: 22%;
-    box-shadow: 8px 8px #f2f2f2;
-    border-radius: 8px;
-    margin: 10px 5px 0px 5px;
+    box-shadow: 5px 6px 5px 5px #f2f2f2;
+    margin: 25px 5px 8px 5px;
+  }
+
+  .activ__card h3 {
+    margin: 0px;
+    padding: 7px 0 12px 15px;
   }
   
   .activ__wrap--stack .activ__card {
@@ -272,29 +414,27 @@
   
   .activ__card img {
     width: 98%;
-    height: 150px;
     border-radius: 15px 15px 0 0;
     object-fit: cover;
   }
   
   .activ__card .activ__img--large {
-    height: 300px;
-    object-position: 0 0;
+    height: 315px;
   }
   
-  .activ__card .activ__card--topstack {
+  .activ__card .activ__card--topleftstack {
     height: 150px;
   }
   
-  .activ__card .first-stack-bottom {
+  .activ__card .activ__card--bottomleftstack {
     height: 110px;
   }
   
-  .activ__card .second-stack-top {
+  .activ__card .activ__card--toprightstack {
     height: 100px;
   }
   
-  .activ__card .second-stack-top {
+  .activ__card .activ__card--bottomrightstack {
     height: 150px;
   }
     /*End of the Activitives */
@@ -310,47 +450,59 @@
 
   /* New media query  */
 
-  @media screen and (max-width: 992px) {
+  @media screen and (max-width: 992px) and (min-width: 801px){
     
-    nav ul{
-      float: right;
-      margin-right: 20px;
+    a {
+      position: relative;
+      color: #000;
+      text-decoration: none;
     }
+   a::before {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #0065FC;
+    transform: scaleX(0);
+    transform-origin: top left;
+    transition: transform 0.5s ease-in-out;
+    }
+    
+  a:hover::before {
+    transform: scaleX(1);
+  }
+  
+    
+  .logo{
+    margin-right: 30%;
+    pointer-events: none;
+  }
 
     .input-wrap {
       width: 41px;
     }
-
+    
     .top-sections {
       flex-direction: column;
-    }
-    
-    .section__accom {
-      width: 100%;
-    }
-  
-    .section__card{
-      width: 84%;
+      margin: 0 40px 0 10px;
     }
     
     .section__most-pop {
-      width: 100%;
-      margin: 0px 14px 25px 13px;
-      padding-bottom: 30px;
+      width: 95%;
       font-size: 14px;
-    }
-
-    .section__card-wrap {
-      display: flex;
-      flex-wrap: wrap;
-      background-color: transparent;
-      box-shadow: 8px 8px #f2f2f2;
-      border-radius: 8px;
     }
 
     .section__pop-wrap{
       display: flex;
+      flex-direction: row;
+    }
 
+    .pop-img {
+      height: 118px;
+      width: 114px;
     }
 
     .section__card-pop {
@@ -359,8 +511,37 @@
       background-color: white;
       padding: 7px;
       border-radius: 30px;
-      width: 100%;
+      width: 93%;
       margin-bottom: 3%;
+    }
+
+    .section__accom {
+      width: 100%;
+      background-color: white;
+    }
+
+    .section__accom h2 {
+      margin: 40px 15px 15px 40px;
+    }
+
+    .section__card-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      background-color: transparent;
+      border-radius: 8px;
+    }
+
+    .section__card {
+      display: flex;
+      flex-direction: row;
+      background-color: white;
+      width: 90%;
+      box-shadow: 5px 6px 5px 5px #f2f2f2;
+    }
+
+    .acom-img {
+      height: 165px;
+      width: 270px;
     }
 
     .activ__wrap {
@@ -369,30 +550,128 @@
     }
     
     .activ__card, .activ__wrap--stack {
-      width: 100%;
+      width: 90%;
+      margin: 0px;
+      box-shadow: none;
     }
 
-    .section__card {
-      display: flex;
-      flex-direction: row;
-      background-color: white;
-      width: 100%;
+    .activ__card{
+      margin: 30px 0px;
+      box-shadow: 5px 6px 5px 5px #f2f2f2;
     }
+
+    .activ__card img{
+      margin: 0px;
+    }
+
+    .activ__card .activ__img--large, .activ__card .activ__card--topleftstack, .activ__card .activ__card--bottomleftstack,.activ__card .activ__card--toprightstack, .activ__card .activ__card--bottomrightstack {
+    width: 100%;
+    height: 150px;
+    }
+
   }
 
-  @media screen and (max-width: 800px) and (min-width: 401px)  {
+  @media screen and (max-width: 800px) {
+    nav {
+      margin-bottom: 65px;
+  }
+    
+    nav ul{
+      flex-wrap: wrap;
+      flex-direction: row;
+    }
+
+    nav ul li{
+      line-height: unset;
+      margin: 0px;
+      border-bottom: 2px solid lightgray;
+    }
+
+    nav ul li:hover{
+      border-bottom: 2px solid blue;
+    }
+
+    .logo{
+      margin-right: 0%;
+      padding: 14px 3px 9px 28px;
+    }
+
+    nav ul li:nth-child(1){
+      order: 1;
+    }
+
+    nav ul li:nth-child(2){
+      order: 3;
+      padding-left: 39px;
+    }
+
+    nav ul li:nth-child(3){
+      order: 4;
+      padding-right: 85px;
+    }
+
+    nav ul li:nth-child(4){
+      order: 2;
+      padding: 37px 60px 0 0;
+    }
+
+    #infotext{
+      padding: 16px;
+      margin: 0 25px 0 23px;   
+    }
 
    .input-wrap {
       width: 41px;
+    }
+    
+    .section_filters h2 {
+      margin-bottom: 20px;
+      font-weight: bold;
+    }
+    
+    .section_filters{
+      max-width: 350px;
+      min-width: 250px;
+    }
+
+    .filter-wrap{
+      width: 60%;
+    }
+
+    .filter-wrap button{
+      font-weight: bold;
+    }
+
+    .filter-wrap button:nth-child(1){
+      order: 1;
+    }
+
+    .filter-wrap button:nth-child(2){
+      order: 3;
+    }
+
+    .filter-wrap button:nth-child(3){
+      order: 2;
+    }
+    
+    .filter-wrap button:nth-child(4){
+      order: 4;
+      padding-right: 15px;
     }
 
     .top-sections {
       flex-direction: column;
     }
+
+    .section__accom h2{
+      display: inline-block;
+      margin: 8px;
+      font-size: 23px;
+    }
     
     .section__accom {
       width: 100%;
-      background-color: transparent;
+      background-color: white;
     }
     
     .section__card{
@@ -400,28 +679,74 @@
       height: 50%;
       display: flex;
       flex-direction: column;
-      box-shadow: 8px 8px #f2f2f2;
-      border-radius: 8px;
+      box-shadow: 3px 6px 5px 5px #f2f2f2;
+      border-radius: 30px;
+      justify-content: space-around;
+      margin-bottom: 15px;
+    }
+
+    .content {
+      padding-left: 15px;
+    }
+
+    .content h3{
+      margin-bottom: 3px;
+    }
+  
+    .content p{
+      margin-bottom: 3px;
+    }
+    
+    .star-item{
+      padding: 5px;
     }
 
     .acom-img {
-      height: 43%;
+      height: 150px;
       width: 100%;
       border-top-left-radius: 25px;
       border-top-right-radius: 25px;
-      margin: 0px 0px 5px 0px;
-      padding: 3px;
       object-fit: cover;
-      object-position: 0 0;
   }
     
     .section__most-pop {
       width: 100%;
-      margin: 0px 14px 25px 13px;
+      margin: 0px 14px 25px 0px;
       padding-bottom: 30px;
       font-size: 14px;
       display: flex;
       flex-wrap: wrap;
+      flex-direction: column;
+    }
+
+    .content-pop h3{
+      margin-bottom: 15px;
+    }
+  
+    .content-pop p{
+      margin-bottom: 15px;
+    }
+  
+    #pop-star-1 {
+      padding-top: 18px;
+      margin-top: 39px;
+    }
+  
+    #pop-star-2 {
+      padding-top: 25px;
+    }
+  
+    #pop-star-3 {
+      padding-top: 20px;
+      margin-top: 22px;
+    }
+
+    .whitestar {
+      margin-left: 5px;
+    }
+
+    .far2{
+      margin: 3px;
     }
 
     .section__card-wrap {
@@ -429,7 +754,6 @@
       flex-wrap: wrap;
       justify-content: center;
       background-color: transparent;
-      box-shadow: 8px 8px #f2f2f2;
       border-radius: 8px;
     }
     
@@ -444,11 +768,35 @@
     }
     
     .activ__card, .activ__wrap--stack {
-      width: 100%;
+      width: 90%;
     }
+
+    .activ__card img {
+      width: 100%;
+      border-radius: 15px 15px 0 0;
+      object-fit: cover;
+    }
+    
+   .activ__card .activ__img--large, .activ__card .activ__card--topleftstack, .activ__card .activ__card--bottomleftstack,.activ__card .activ__card--toprightstack, .activ__card .activ__card--bottomrightstack {
+      height: 150px;
+    }
+    
   }
 
+
+
+
+
+
+
+
+  /*
+
   @media screen and (max-width: 400px)  {
+    nav ul li{
+      line-height: 70px;
+      margin: 0px 
+    }
     nav ul{
       float: right;
       margin-right: 20px;
@@ -456,17 +804,6 @@
 
     .input-wrap {
       width: 41px;
-    }
-  
-     button{
-      color: white;
-      background-color: #0065FC;
-      padding: 10px 10px 15px 5px;
-      border-style: solid;
-      border-color: #f2f2f2;
-      border-width: 2px;
-      border-top-right-radius: 15px;
-      border-bottom-right-radius: 15px;
     }
 
     .top-sections {
@@ -521,10 +858,6 @@
       width: 100%;
     }
   }
-
-
-
-
 
 
 /*   Old Code For star rating amd filer icons
