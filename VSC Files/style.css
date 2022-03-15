@@ -29,7 +29,6 @@
   }
 
   /* Nav-Bar nav effects */
-
   nav a::before{
     content: "";
     background-color: #0065FC;
@@ -51,7 +50,6 @@
   /* End of NAV-BAR */
 
   /* Section-content nav effects */
-
   section a:after{
     content: "";
     background-color: #0065FC;
@@ -164,7 +162,6 @@
     right: 0;
     bottom: 0;
     left: 0;
-    box-sizing: 25px;
     background-color: var(--accent-color);
     z-index: -1;
     transform: scaleX(0);
@@ -624,7 +621,6 @@
       margin: 0px;
       border-bottom: 2px solid lightgray;
       padding: 12px;
-      position: none;
     }
 
     .logo{
